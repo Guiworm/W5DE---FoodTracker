@@ -16,6 +16,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+	
+	
     
     /*
         This value is either passed by `MealTableViewController` in `prepareForSegue(_:sender:)`
@@ -25,7 +27,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         
@@ -39,6 +41,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         
         // Enable the Save button only if the text field has a valid Meal name.
         checkValidMealName()
+
     }
     
     // MARK: UITextFieldDelegate

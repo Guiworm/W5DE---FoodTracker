@@ -27,6 +27,17 @@ class MealTableViewController: UITableViewController {
             // Load the sample data.
             loadSampleMeals()
         }
+		
+		let defaults = UserDefaults.standard
+		
+		defaults.removeObject(forKey: "userUsername")
+
+		if (defaults.string(forKey: "userUsername") != nil){
+			print("Default login stored")
+		}
+		else{
+			performSegue(withIdentifier: "loginSegue", sender: nil)
+		}
     }
     
     func loadSampleMeals() {
