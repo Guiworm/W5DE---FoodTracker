@@ -105,14 +105,15 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
             let name = nameTextField.text ?? ""
             let photo = photoImageView.image
             let rating = ratingControl.rating
+			let calories = calories;
+			let mealDescription = mealDescriptionField.text;
             
             // Set the meal to be passed to MealListTableViewController after the unwind segue.
-            meal = Meal(name: name, photo: photo, rating: rating)
+            meal = Meal(name: name, photo: photo, rating: rating, calories: calories, mealDescription: mealDescription)
         }
     }
     
     // MARK: Actions
-    
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // Hide the keyboard.
         nameTextField.resignFirstResponder()

@@ -28,27 +28,27 @@ class MealTableViewController: UITableViewController {
             loadSampleMeals()
         }
 		
-		let defaults = UserDefaults.standard
+		//let defaults = UserDefaults.standard
 		
-		defaults.removeObject(forKey: "userUsername")
-
-		if (defaults.string(forKey: "userUsername") != nil){
-			print("Default login stored")
-		}
-		else{
+		//defaults.removeObject(forKey: "userUsername")
+		
+		//if (defaults.string(forKey: "userUsername") != nil){
+		//print("Default login stored")
+//		}
+//		else{
 			performSegue(withIdentifier: "loginSegue", sender: nil)
-		}
+		//}
     }
     
     func loadSampleMeals() {
         let photo1 = UIImage(named: "meal1")!
-        let meal1 = Meal(name: "Caprese Salad", photo: photo1, rating: 4)!
-        
+		let meal1 = Meal(name: "Caprese Salad", photo: photo1, rating: 4, calories: 110, mealDescription: "food")!
+		
         let photo2 = UIImage(named: "meal2")!
-        let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5)!
+        let meal2 = Meal(name: "Chicken and Potatoes", photo: photo2, rating: 5, calories: 110, mealDescription: "food")!
         
         let photo3 = UIImage(named: "meal3")!
-        let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3)!
+        let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3, calories: 110, mealDescription: "food")!
         
         meals += [meal1, meal2, meal3]
     }

@@ -15,6 +15,8 @@ class Meal: NSObject, NSCoding {
     var name: String
     var photo: UIImage?
     var rating: Int
+	var calories: Int
+	var mealDescription: String
     
     // MARK: Archiving Paths
     
@@ -27,15 +29,20 @@ class Meal: NSObject, NSCoding {
         static let nameKey = "name"
         static let photoKey = "photo"
         static let ratingKey = "rating"
+		static let caloriesKey = "calories"
+		static let mealDescriptionKey = "mealDescription"
+
     }
 
     // MARK: Initialization
     
-    init?(name: String, photo: UIImage?, rating: Int) {
+	init?(name: String, photo: UIImage?, rating: Int, calories: Int, mealDescription: String) {
         // Initialize stored properties.
         self.name = name
         self.photo = photo
         self.rating = rating
+		self.calories = calories
+		self.mealDescription = mealDescription
         
         super.init()
         
@@ -60,9 +67,14 @@ class Meal: NSObject, NSCoding {
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as? UIImage
         
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.ratingKey)
-        
+		
+		let calories = aDecoder.decodeInteger(forKey: PropertyKey.caloriesKey)
+		
+		let mealDescription = aDecoder.decodeObject(forKey: PropertyKey.mealDescriptionKey) as! String
+
+		
         // Must call designated initializer.
-        self.init(name: name, photo: photo, rating: rating)
+        self.init(name: name, photo: photo, rating: rating, calories: calories, mealDescription: mealDescription)
     }
 
 }

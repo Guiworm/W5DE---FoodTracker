@@ -31,7 +31,19 @@ class LoginViewController: UIViewController {
 			"password": passwordField.text ?? ""
 		]
 		
-		APIManager().login(postData: postData)
-	}
+		APIManager().loginSignup(postData: postData, completion: { (status: String) in
+			let alert = UIAlertController(title: status,
+			                              message: "",
+			                              preferredStyle: UIAlertControllerStyle.alert)
+			
+			alert.addAction(UIAlertAction(title: "OK",
+			                              style: UIAlertActionStyle.default,
+			                              handler: nil))
+			
+			self.present(alert, animated: true, completion: nil)
 
+		})
+		
+		
+	}
 }
